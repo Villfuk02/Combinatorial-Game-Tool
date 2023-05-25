@@ -24,7 +24,7 @@ A less abstract game is Cutcake. Here, we have a rectangular cake with integer d
 
 ## Linear Col
 
-Linear col is a simple game, played on a line of dashes (**-**). As a move, left player can color any of the dashes **L**ime and right can color them **R**ed. When you color a dash, its neighbors get slightly tinted with the opposite color (**r**ed or **l**ime). When a dash it tinted, it can only be colored in the matching color. If a dash ever gets tinted by both colors (**x**) it cannot be colored by either plyer. (i.e. `linearColFromString "----"`)
+Linear col is a simple game, played on a line of dashes (**-**) (i.e. `linearColFromString "----"`). As a move, left player can color any of the dashes **L**ime and right can color them **R**ed. When you color a dash, its neighbors get slightly tinted with the opposite color (**r**ed or **l**ime). When a dash it tinted, it can only be colored in with the matching color. If a dash ever gets tinted by both colors (**x**) it cannot be colored by either plyer.
 
 ## Comparing games and fractional moves
 
@@ -34,13 +34,13 @@ Consider the Col position `l-`. Right can make one move, but left has the advant
 
 In the game ClassicNim, there is a heap of stones. On each turn, a player must take 1 to 3 stones from the heap. As always a player loses, when no moves remain. Consider the game `gamify (ClassicNim 5)`. In Nim, neither player has the advantage, but in this specific instance, the first player wins! This game has the value `star` shown as `*`. It is not less than zero, not greater than zero, not equal to zero, but rather *Confused with* zero (try `gameCompare star zero` or `star ||: zero`).
 
-When you try to play `Multiple 2 (gamify (ClassicNim 1))`, you'll find out that this game is equal to zero again, so `*` + `*` = `0`. The game `gamify (ClassicNim 2)` however, has value `*2` (you can get it as `s 2`) which is still a win for the first plyer, but it's not equal to `*`. This is relevant because `nimAdditionExample = gamify (ClassicNim 1) + gamify (ClassicNim 2) + gamify (ClassicNim 3)` equals `0`.
+When you try to play `Multiple 2 (gamify (ClassicNim 1))`, representing two heaps, each with one stone, you'll find out that this game is equal to zero again. So `*` + `*` = `0`. The game `gamify (ClassicNim 2)` however, has value `*2` (you can get it as `s 2`) which is still a win for the first plyer, but it's not equal to `*`. This is relevant because `nimAdditionExample = gamify (ClassicNim 1) + gamify (ClassicNim 2) + gamify (ClassicNim 3)` equals `0`.
 
 Then there is UnlimitedNim, where a player can take any number of stones, greater than 0, and FibonacciNim, where a player can take a number of stones equal to some Fibonacci number. You can try to spot some patterns in FibonacciNim games of size 1 to 100: `fibonacciNimAnalysis = map (simplify . gamify . FibonacciNim) [1 .. 100]`.
 
 ## Toads and Frogs
 
-Another game is ToadsAndFrogs (for example `upExample = toadsAndFrogsFromString ">_><<"`). It is played on a strip where left controls toads (**>**) that can only go right controls frogs (**<**) that can only go left. A player may move one of their amphibians one space forward, if it is empty (**_**), or jump over the opponent's one if it is directly in front of it and the next space is empty.
+Another game is ToadsAndFrogs (for example `upExample = toadsAndFrogsFromString ">_><<"`). It is played on a strip where left controls toads (**>**) that can only go right and right controls frogs (**<**) that can only go left. A player may move one of their amphibians one space forward if it is empty (**\_**), or jump over the opponent's one if it is directly in front of it and the next space is empty.
 
 ## Ups and downs
 
@@ -48,7 +48,7 @@ What's the value of `upExample`? It is `up` (shown as `^`) of course! It is posi
 
 ## Heating up
 
-If it seems the games we've explored are rather boring, it is because they are. Or *cold* by definition. Each player tries very hard not to play, conserving every move. Then there are hot games, where player are incentivised to play. For example the game `hotGameExample = toadsAndFrogsFromString "_>>_<<_"` has the value `{ 1/4 | -1/4 }`. This means that when either player makes their move, it's basically free and they get one quarter of a move as a bonus!
+If it seems the games we've explored are rather boring, it is because they are. Or *cold* by definition. Each player tries very hard not to play, conserving every move. Then there are hot games, where players are incentivised to play. For example the game `hotGameExample = toadsAndFrogsFromString "_>>_<<_"` has the value `{ 1/4 | -1/4 }`. This means that when either player makes their move, it's basically free and they get one quarter of a move as a bonus!
 
 ## Beaten by TicTacToe
 
