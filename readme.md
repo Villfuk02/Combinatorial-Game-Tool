@@ -20,7 +20,7 @@ Games can also be multiplied by integers. For example for game `g`, `Multiple 3 
 
 ## Playing Cutcake
 
-A less abstract game is Cutcake. Here, we have a rectangular cake with dimensoions width x height. Left can slice it vertically into two smaller rectangles and right can slice horizontally. This is a cake of size 4 x 4: `cutcakeExample = gamify (Cutcake 4 4)` (when in doubt, add `gamify`). You can again check what moves can which player make if you're not sure. This cake is a square, so neither player has the advantage and it has the value `0`. You can try to play the game yourself by running `play p cutcakeExample`. Instead of `p`, substitute which player starts. You can see for yourself that no matter who starts, the other player can make them lose.
+A less abstract game is Cutcake. Here, we have a rectangular cake with integer dimensoions width x height. Left can slice it vertically into two smaller integer-sized rectangles whereas right can slice horizontally. Left acnoont slice cakes of witdth 1 any further and right cannot slice cakes of height 1. Cakes of size 1 x 1 can thus be ignored. This is a cake of size 4 x 4: `cutcakeExample = gamify (Cutcake 4 4)` (when in doubt, add `gamify`). You can again check what moves can which player make if you're not sure. This cake is a square, so neither player has the advantage and it has the value `0`. You can try to play the game yourself by running `play p cutcakeExample`. Instead of `p`, substitute which player starts. You can see for yourself that no matter who starts, the other player can make them lose.
 
 ## Linear Col
 
